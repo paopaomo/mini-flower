@@ -39,7 +39,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.0.4",
+  "libVersion": "2.14.1",
   "appid": "wxb0a0d1f10f857f9a",
   "projectname": "flower",
   "debugOptions": {
