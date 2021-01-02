@@ -1,18 +1,22 @@
 // pages/posts/posts.js
+import { postList } from '../../data/data.js';
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    posts: []
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.setData({
+      posts: postList
+    })
   },
 
   /**
