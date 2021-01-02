@@ -6,5 +6,8 @@
   "window": {
     "navigationBarBackgroundColor": "#c22a1e"
   },
+  "usingComponents": {
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index"
+  },
   "sitemapLocation": "sitemap68.json"
 }
