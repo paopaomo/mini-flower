@@ -12,4 +12,19 @@
       <image src="/images/jumpfly.jpeg" />
     </swiper-item>
   </swiper>
+  <view class="post-container">
+    <view class="post-author-date">
+      <image src="/images/avatar/3.png" class="post-author" />
+      <text class="post-date">Nov 20 2020</text>
+    </view>
+    <text class="post-title">2020LPL夏季赛季后赛观赛指南</text>
+    <image src="/images/lpl.jpeg" class="post-image" />
+    <text class="post-content">8月9号 哈哈哈哈 2020LPL夏季赛季后赛观赛指南 2020LPL夏季赛季后赛观赛指南 2020LPL夏季赛季后赛观赛指南 2020LPL夏季赛季后赛观赛指南 2020LPL夏季赛季后赛观赛指南</text>
+    <view class="post-like">
+      <image src="/images/icon/chat.png" class="post-like-image" />
+      <text class="post-like-font">92</text>
+      <image src="/images/icon/view.png" class="post-like-image" />
+      <text class="post-like-font">102</text>
+    </view>
+  </view>
 </view>
