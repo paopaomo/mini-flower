@@ -1,0 +1,15 @@
+<!--pages/posts/posts.wxml-->
+
+<view>
+  <swiper indicator-dots autoplay circular interval="3000">
+    <swiper-item>
+      <image src="/images/bestplayers.jpeg" />
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/lpl.jpeg" />
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/jumpfly.jpeg" />
+    </swiper-item>
+  </swiper>
+</view>
