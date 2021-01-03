@@ -70,6 +70,7 @@
         {
           "name": "pages/post-details/post-details",
           "pathName": "pages/post-details/post-details",
+          "query": "pid=3",
           "scene": null
         }
       ]
