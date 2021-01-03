@@ -13,8 +13,11 @@ Page({
   },
 
   goToDetailsPage(event) {
+    const {
+      postId
+    } = event.currentTarget.dataset;
     wx.navigateTo({
-      url: '/pages/post-details/post-details',
+      url: `/pages/post-details/post-details?pid=${postId}`,
     })
   },
 
