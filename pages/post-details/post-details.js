@@ -1,30 +1,18 @@
-// pages/posts/posts.js
-import {
-  postList
-} from '../../data/data.js';
-
+// pages/post-details/post-details.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    postList: []
-  },
 
-  goToDetailsPage(event) {
-    wx.navigateTo({
-      url: '/pages/post-details/post-details',
-    })
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.setData({
-      postList
-    })
+
   },
 
   /**
