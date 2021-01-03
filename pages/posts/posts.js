@@ -7,7 +7,7 @@ Page({
    * Page initial data
    */
   data: {
-    posts: []
+    postList: []
   },
 
   /**
@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      posts: postList
+      postList
     })
   },
 

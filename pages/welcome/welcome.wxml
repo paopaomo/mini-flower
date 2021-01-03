@@ -3,5 +3,5 @@
 <view class="container">
   <l-avatar open-data="{{['userAvatarUrl','userNickName']}}" placement="bottom" class="l-avatar" size="180" />
   <text class="motto">Hello,七月</text>
-  <l-button plain>开启小程序之旅</l-button>
+  <l-button plain bind:tap="onTap">开启小程序之旅</l-button>
 </view>

@@ -8,6 +8,12 @@ Page({
 
   },
 
+  onTap() {
+    wx.redirectTo({
+      url: '/pages/posts/posts'
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
