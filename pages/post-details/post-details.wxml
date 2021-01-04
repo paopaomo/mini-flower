@@ -1,7 +1,8 @@
 <!--pages/post-details/post-details.wxml-->
 <view class="container">
   <image src="{{postDetails.headImgSrc}}" class="head-image" />
-  <view class="author-date">
+  <image class="audio" src="{{isPlaying ? '/images/music/music-stop.png' : '/images/music/music-start.png'}}" bind:tap="toggleMusicIcon" />
+  <view class=" author-date">
     <image src="{{postDetails.avatar}}" class="avatar" />
     <text class="author">{{postDetails.author}}</text>
     <text class="const-text">发表于</text>

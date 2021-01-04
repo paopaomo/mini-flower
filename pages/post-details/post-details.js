@@ -13,8 +13,11 @@ Page({
   data: {
     postDetails: {},
     collected: false,
+    isPlayingMusic: false,
     _pid: null,
-    _collectedPosts: []
+    _collectedPosts: [],
+    _bgAM: null,
+    _isFirstPlaying: true
   },
 
   onCollect() {
@@ -32,6 +35,26 @@ Page({
     })
   },
 
+  toggleMusicIcon() {
+    if (this.data._isFirstPlaying) {
+      const {
+        url,
+        title,
+        coverImg
+      } = this.data.postDetails.music;
+      this.data._bgAM.src = url;
+      this.data._bgAM.title = title;
+      this.data._bgAM.coverImgUrl = coverImg;
+      this.data._isFirstPlaying = false;
+      return;
+    }
+    if (this.data.isPlaying) {
+      this.data._bgAM.pause();
+    } else {
+      this.data._bgAM.play();
+    }
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
@@ -42,6 +65,18 @@ Page({
     this.setData({
       postDetails,
       collected: this.data._collectedPosts.includes(this.data._pid)
+    });
+    const bgAM = wx.getBackgroundAudioManager();
+    this.data._bgAM = bgAM;
+    bgAM.onPlay(() => {
+      this.setData({
+        isPlaying: true
+      })
+    });
+    bgAM.onPause(() => {
+      this.setData({
+        isPlaying: false
+      })
     });
   },
 
