@@ -3,13 +3,13 @@
 <view>
   <swiper indicator-dots autoplay circular interval="3000">
     <swiper-item>
-      <image src="/images/bestplayers.png" />
+      <image src="/images/bestplayers.png" bind:tap="goToDetailsPage" data-post-id="3" />
     </swiper-item>
     <swiper-item>
-      <image src="/images/lpl.png" />
+      <image src="/images/lpl.png" bind:tap="goToDetailsPage" data-post-id="0" />
     </swiper-item>
     <swiper-item>
-      <image src="/images/jumpfly.png" />
+      <image src="/images/jumpfly.png" bind:tap="goToDetailsPage" data-post-id="4" />
     </swiper-item>
   </swiper>
   <block wx:for="{{postList}}" wx:key="postId">
