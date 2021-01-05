@@ -78,12 +78,15 @@ Page({
         isPlaying: true
       })
     });
-    bgAM.onPause(() => {
-      app.gIsPlaying = false;
-      this.setData({
-        isPlaying: false
-      })
-    });
+    bgAM.onPause(this.pausePlaying);
+    bgAM.onEnded(this.pausePlaying);
+  },
+
+  pausePlaying() {
+    app.gIsPlaying = false;
+    this.setData({
+      isPlaying: false
+    })
   },
 
   /**
