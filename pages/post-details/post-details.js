@@ -5,6 +5,8 @@ import {
 
 const COLLECTED_POSTS = 'COLLECTED_POSTS';
 
+const app = getApp();
+
 Page({
 
   /**
@@ -13,7 +15,7 @@ Page({
   data: {
     postDetails: {},
     collected: false,
-    isPlayingMusic: false,
+    isPlaying: false,
     _pid: null,
     _collectedPosts: [],
     _bgAM: null,
@@ -46,6 +48,7 @@ Page({
       this.data._bgAM.title = title;
       this.data._bgAM.coverImgUrl = coverImg;
       this.data._isFirstPlaying = false;
+      app.gPlayingPostId = this.data._pid;
       return;
     }
     if (this.data.isPlaying) {
@@ -64,16 +67,19 @@ Page({
     const postDetails = postList.find(item => item.postId === this.data._pid);
     this.setData({
       postDetails,
-      collected: this.data._collectedPosts.includes(this.data._pid)
+      collected: this.data._collectedPosts.includes(this.data._pid),
+      isPlaying: app.gPlayingPostId === this.data._pid && app.gIsPlaying
     });
     const bgAM = wx.getBackgroundAudioManager();
     this.data._bgAM = bgAM;
     bgAM.onPlay(() => {
+      app.gIsPlaying = true;
       this.setData({
         isPlaying: true
       })
     });
     bgAM.onPause(() => {
+      app.gIsPlaying = false;
       this.setData({
         isPlaying: false
       })
