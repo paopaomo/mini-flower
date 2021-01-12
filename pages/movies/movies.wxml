@@ -1,2 +1,7 @@
 <!--pages/movies/movies.wxml-->
-<text>pages/movies/movies.wxml</text>
+
+<view class="container">
+  <movies f-class="movies" />
+  <movies f-class="movies" />
+  <movies f-class="movies" />
+</view>

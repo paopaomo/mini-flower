@@ -1,0 +1,10 @@
+<!--components/movie/index.wxml-->
+
+<view class="container">
+  <image src="/images/lpl.png" class="poster" />
+  <text class="title">盗梦空间</text>
+  <view class="rate-container">
+    <l-rate score="3.6" size="22" disabled="{{true}}" />
+    <text class="score">3.6</text>
+  </view>
+</view>
