@@ -15,7 +15,7 @@ Page({
     _hasMore: true
   },
 
-  getMovies(start = 0) {
+  getMovies(start = 0, merge = false, from) {
     wx.showNavigationBarLoading()
     wx.request({
       url: `${app.gBaseUrl}${this.data._type}`,
@@ -25,9 +25,18 @@ Page({
       },
       success: (res) => {
         const { subjects, start, count, total } = res.data
-        this.setData({
-          movies: [...this.data.movies, ...subjects]
-        })
+        if(merge) {
+          this.setData({
+            movies: [...this.data.movies, ...subjects]
+          })
+        } else {
+          this.setData({
+            movies: subjects
+          })
+        }
+        if(from === 'pull') {
+          wx.stopPullDownRefresh()
+        }
         this.data._hasMore = start + count < total
         wx.hideNavigationBarLoading()
       }
@@ -70,11 +79,17 @@ Page({
 
   },
 
+  initialData() {
+    this.data._page = 0
+    this.data._hasMore = true
+  },
+
   /**
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh: function () {
-
+    this.initialData()
+    this.getMovies(0, false, 'pull')
   },
 
   /**
@@ -85,7 +100,7 @@ Page({
       return
     }
     this.data._page = this.data._page + 1
-    this.getMovies((this.data._page) * count)
+    this.getMovies((this.data._page) * count, true)
   },
 
   /**
