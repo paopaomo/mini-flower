@@ -10,12 +10,38 @@ Page({
   data: {
     inTheaters: [],
     comingSoon: [],
-    top250: []
+    top250: [],
+    showSearchResult: false,
+    searchData: []
   },
 
   onGoToMore(event) {
     wx.navigateTo({
       url: `/pages/more-movie/more-movie?type=${event.currentTarget.dataset.type}`,
+    })
+  },
+
+  onConfirm(event) {
+    this.setData({
+      showSearchResult: true
+    })
+    wx.request({
+      url: `${app.gBaseUrl}search`,
+      data: {
+        q: event.detail.value
+      },
+      success: (res) => {
+        this.setData({
+          searchData: res.data.subjects
+        })
+      }
+    })
+  },
+
+  onCancel() {
+    this.setData({
+      showSearchResult: false,
+      searchData: []
     })
   },
 
@@ -34,7 +60,7 @@ Page({
           inTheaters: res.data.subjects
         })
       }
-    });
+    })
     wx.request({
       url: `${app.gBaseUrl}coming_soon`,
       data: {
@@ -46,7 +72,7 @@ Page({
           comingSoon: res.data.subjects
         })
       }
-    });
+    })
     wx.request({
       url: `${app.gBaseUrl}top250`,
       data: {

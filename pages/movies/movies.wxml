@@ -1,22 +1,36 @@
 <!--pages/movies/movies.wxml-->
 
 <view class="container">
-  <movies 
-    f-class="movies" 
-    title="正在热映" 
-    movies="{{ inTheaters }}" 
-    data-type="in_theaters"
-    bind:tap="onGoToMore" />
-  <movies 
-    f-class="movies" 
-    title="即将上映" 
-    movies="{{ comingSoon }}" 
-    data-type="coming_soon"
-    bind:tap="onGoToMore" />
-  <movies 
-    f-class="movies" 
-    title="豆瓣Top250" 
-    movies="{{ top250 }}"
-    data-type="top250" 
-    bind:tap="onGoToMore" />
+  <l-search-bar 
+    l-class="ex-search-bar" 
+    placeholder="盗梦空间、你的名字" bind:linconfirm="onConfirm"
+    bind:lincancel="onCancel" />
+  <view wx:if="{{showSearchResult}}" class="search-container">
+    <block wx:for="{{ searchData }}" wx:key="index">
+      <view>
+        {{ item.toString() }}
+      <movie movie="{{ item }}" />
+      </view>
+    </block>
+  </view>
+  <view wx:else>
+    <movies 
+      f-class="movies" 
+      title="正在热映" 
+      movies="{{ inTheaters }}" 
+      data-type="in_theaters"
+      bind:tap="onGoToMore" />
+    <movies 
+      f-class="movies" 
+      title="即将上映" 
+      movies="{{ comingSoon }}" 
+      data-type="coming_soon"
+      bind:tap="onGoToMore" />
+    <movies 
+      f-class="movies" 
+      title="豆瓣Top250" 
+      movies="{{ top250 }}"
+      data-type="top250" 
+      bind:tap="onGoToMore" />
+  </view>
 </view>
