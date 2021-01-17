@@ -3,7 +3,10 @@ Component({
   /**
    * Component properties
    */
-  properties: {},
+  properties: {
+    title: String,
+    movies: Array
+  },
 
   externalClasses: ['f-class'],
 

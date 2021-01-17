@@ -2,12 +2,12 @@
 
 <view class="container f-class">
   <view class="title-container">
-    <text>正在热映</text>
+    <text>{{ title }}</text>
     <text class="more-text">更多</text>
   </view>
   <view class="movie-container">
-    <movie />
-    <movie />
-    <movie />
+    <block wx:for="{{ movies }}" wx:key="index">
+      <movie movie="{{ item }}" />
+    </block>
   </view>
 </view>
