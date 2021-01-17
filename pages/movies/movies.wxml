@@ -1,7 +1,22 @@
 <!--pages/movies/movies.wxml-->
 
 <view class="container">
-  <movies f-class="movies" title="正在热映" movies="{{ inTheaters }}" />
-  <movies f-class="movies" title="即将上映" movies="{{ comingSoon }}" />
-  <movies f-class="movies" title="豆瓣Top250" movies="{{ top250 }}" />
+  <movies 
+    f-class="movies" 
+    title="正在热映" 
+    movies="{{ inTheaters }}" 
+    data-type="in_theaters"
+    bind:tap="onGoToMore" />
+  <movies 
+    f-class="movies" 
+    title="即将上映" 
+    movies="{{ comingSoon }}" 
+    data-type="coming_soon"
+    bind:tap="onGoToMore" />
+  <movies 
+    f-class="movies" 
+    title="豆瓣Top250" 
+    movies="{{ top250 }}"
+    data-type="top250" 
+    bind:tap="onGoToMore" />
 </view>

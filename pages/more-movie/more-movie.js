@@ -1,5 +1,4 @@
-// pages/movies/movies.js
-
+// pages/more-movie/more-movie.js
 const app = getApp();
 
 Page({
@@ -8,15 +7,7 @@ Page({
    * Page initial data
    */
   data: {
-    inTheaters: [],
-    comingSoon: [],
-    top250: []
-  },
-
-  onGoToMore(event) {
-    wx.navigateTo({
-      url: `/pages/more-movie/more-movie?type=${event.currentTarget.dataset.type}`,
-    })
+    movies: []
   },
 
   /**
@@ -24,41 +15,17 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: `${app.gBaseUrl}in_theaters`,
+      url: `${app.gBaseUrl}${options.type}`,
       data: {
         start: 0,
-        count: 3
+        count: 12
       },
       success: (res) => {
         this.setData({
-          inTheaters: res.data.subjects
+          movies: res.data.subjects
         })
       }
     });
-    wx.request({
-      url: `${app.gBaseUrl}coming_soon`,
-      data: {
-        start: 0,
-        count: 3
-      },
-      success: (res) => {
-        this.setData({
-          comingSoon: res.data.subjects
-        })
-      }
-    });
-    wx.request({
-      url: `${app.gBaseUrl}top250`,
-      data: {
-        start: 0,
-        count: 3
-      },
-      success: (res) => {
-        this.setData({
-          top250: res.data.subjects
-        })
-      }
-    })
   },
 
   /**

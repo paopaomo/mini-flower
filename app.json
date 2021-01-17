@@ -3,7 +3,8 @@
     "pages/welcome/welcome",
     "pages/posts/posts",
     "pages/post-details/post-details",
-    "pages/movies/movies"
+    "pages/movies/movies",
+    "pages/more-movie/more-movie"
   ],
   "window": {
     "navigationBarBackgroundColor": "#c22a1e"
@@ -18,7 +19,8 @@
     "selectedColor": "#333333",
     "color": "#999999",
     "borderStyle": "white",
-    "list": [{
+    "list": [
+      {
         "text": "阅读",
         "pagePath": "pages/posts/posts",
         "iconPath": "/images/tab/post.png",
