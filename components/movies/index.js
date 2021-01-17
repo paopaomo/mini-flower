@@ -21,6 +21,8 @@ Component({
    * Component methods
    */
   methods: {
-
+    onTapMore() {
+      this.triggerEvent('tapmore')
+    }
   }
 })

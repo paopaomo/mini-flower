@@ -18,6 +18,10 @@ Component({
    * Component methods
    */
   methods: {
-
+    onGoToDetailsPage() {
+      wx.navigateTo({
+        url: `/pages/movie-details/movie-details?mid=${this.properties.movie.id}`
+      })
+    }
   }
 })
