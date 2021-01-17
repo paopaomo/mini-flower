@@ -19,18 +19,18 @@
       title="正在热映" 
       movies="{{ inTheaters }}" 
       data-type="in_theaters"
-      bind:tap="onGoToMore" />
+      bind:tapmore="onGoToMore" />
     <movies 
       f-class="movies" 
       title="即将上映" 
       movies="{{ comingSoon }}" 
       data-type="coming_soon"
-      bind:tap="onGoToMore" />
+      bind:tapmore="onGoToMore" />
     <movies 
       f-class="movies" 
       title="豆瓣Top250" 
       movies="{{ top250 }}"
       data-type="top250" 
-      bind:tap="onGoToMore" />
+      bind:tapmore="onGoToMore" />
   </view>
 </view>
