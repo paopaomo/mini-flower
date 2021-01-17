@@ -13,11 +13,14 @@ Page({
   },
 
   goToDetailsPage(event) {
-    const {
-      postId
-    } = event.currentTarget.dataset;
+    let pid
+    if(event.type === 'posttap') {
+      pid = event.detail.pid
+    } else {
+      pid = event.currentTarget.dataset.postId
+    }
     wx.navigateTo({
-      url: `/pages/post-details/post-details?pid=${postId}`,
+      url: `/pages/post-details/post-details?pid=${pid}`,
     })
   },
 

@@ -1,6 +1,6 @@
 <!--components/post/index.wxml-->
 
-<view class="post-container" bind:tap="goToDetailsPage" data-post-id="{{item.postId}}">
+<view class="post-container" bind:tap="onTap">
   <view class="post-author-date">
     <image src="{{item.avatar}}" class="post-author" />
     <text class="post-date">{{item.date}}</text>

@@ -18,6 +18,10 @@ Component({
    * Component methods
    */
   methods: {
-
+    onTap() {
+      this.triggerEvent('posttap', {
+        pid: this.properties.item.postId
+      })
+    }
   }
 })
