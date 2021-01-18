@@ -1,10 +1,10 @@
 <!--pages/movie-details/movie-details.wxml-->
 
 <view class="container">
-  <image class="head-img" src="{{ movie.images.large }}" />
+  <image class="head-img" src="{{ movie.images.large }}" mode="aspectFill" />
   <view class="head-img-hover">
     <text class="main-title">{{ movie.title }}</text>
-    <text class="sub-title">{{ movie.countries[0] + " - " + movie.year }}</text>
+    <text class="sub-title">{{ movie.subtitle }}</text>
     <view class="like">
       <text class="highlight-font">{{ movie.wish_count }}</text>
       <text class="plain-font">人喜欢</text>
@@ -13,4 +13,29 @@
     </view>
     <image class="movie-img" src="{{ movie.images.large }}" bind:tap="onView" />
   </view>
+  <view class="summary">
+    <view class="original-title">
+      <text>{{ movie.title }}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">评分</text>
+      <view class="score-container">
+        <l-rate disabled="{{ false }}" size="22" score="{{ movie.score }}"></l-rate>
+        <text class="score">{{ movie.rating.average }}</text>
+      </view>
+    </view>
+    <view class="flex-row">
+      <text class="mark">导演</text>
+      <text>{{ movie.directors }}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">影人</text>
+      <text>{{ movie.casts }}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">类型</text>
+      <text>{{ movie.genres }}</text>
+    </view>
+  </view>
+  <view class="hr"></view>
 </view>

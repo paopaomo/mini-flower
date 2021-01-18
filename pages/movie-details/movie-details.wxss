@@ -60,3 +60,43 @@
   right: 30rpx;
   top: 160rpx;
 }
+
+.summary {
+  margin-left: 40rpx;
+  margin-top: 90rpx;
+  color: #777777;
+}
+
+.original-title {
+  color: #1f3463;
+  font-size: 24rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.score-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.score {
+  margin-left: 20rpx;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.mark {
+  margin-right: 30rpx;
+  color: #999999;
+}
+
+.hr {
+  height: 2rpx;
+  width: 100%;
+  background-color: #d9d9d9;
+  margin-top: 45rpx;
+}

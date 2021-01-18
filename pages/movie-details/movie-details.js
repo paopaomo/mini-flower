@@ -1,5 +1,9 @@
 // pages/movie-details/movie-details.js
 
+import {
+  convertArrayToString
+} from "../../utils/utils"
+
 const app = getApp()
 
 Page({
@@ -17,6 +21,17 @@ Page({
     })
   },
 
+  processMovieData(movie) {
+    movie.directors = convertArrayToString(movie.directors)
+    movie.casts = convertArrayToString(movie.casts)
+    movie.genres = movie.genres.join('/')
+    movie.subtitle = movie.countries[0] + " - " + movie.year
+    movie.score = movie.rating.stars / 10
+    this.setData({
+      movie
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
@@ -28,9 +43,7 @@ Page({
       url: `${app.gBaseUrl}subject/${mid}`,
       success: (res) => {
         console.log(res)
-        this.setData({
-          movie: res.data
-        })
+        this.processMovieData(res.data)
       }
     })
   },
