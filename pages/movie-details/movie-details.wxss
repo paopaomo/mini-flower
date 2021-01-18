@@ -1,1 +1,62 @@
 /* pages/movie-details/movie-details.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-img-hover {
+  box-sizing: border-box;
+  width: 100%;
+  height: 320rpx;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-left: 40rpx;
+  padding-top: 50rpx;
+}
+
+.main-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  letter-spacing: 4rpx;
+  color: white;
+}
+
+.sub-title {
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  color: white;
+}
+
+.like {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.highlight-font {
+  color: #f21146;
+  font-size: 22rpx;
+  margin-right: 10rpx;
+}
+
+.plain-font {
+  color: #666666;
+  font-size: 22rpx;
+  margin-right: 30rpx;
+}
+
+.head-img {
+  width: 100%;
+  height: 320rpx;
+  -webkit-filter: blur(40rpx);
+}
+
+.movie-img {
+  width: 175rpx;
+  height: 238rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 160rpx;
+}
