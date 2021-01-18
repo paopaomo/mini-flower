@@ -11,11 +11,19 @@ Page({
     movie: {}
   },
 
+  onView() {
+    wx.previewImage({
+      urls: [this.data.movie.images.large],
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const { mid } = options
+    const {
+      mid
+    } = options
     wx.request({
       url: `${app.gBaseUrl}subject/${mid}`,
       success: (res) => {

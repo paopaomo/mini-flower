@@ -11,6 +11,6 @@
       <text class="highlight-font">{{ movie.comments_count }}</text>
       <text class="plain-font">条评论</text>
     </view>
-    <image class="movie-img" src="{{ movie.images.large }}" />
+    <image class="movie-img" src="{{ movie.images.large }}" bind:tap="onView" />
   </view>
 </view>
