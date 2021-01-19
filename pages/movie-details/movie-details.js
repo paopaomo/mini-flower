@@ -1,7 +1,8 @@
 // pages/movie-details/movie-details.js
 
 import {
-  convertArrayToString
+  convertArrayToNameString,
+  convertArrayToInfo
 } from "../../utils/utils"
 
 const app = getApp()
@@ -22,14 +23,19 @@ Page({
   },
 
   processMovieData(movie) {
-    movie.directors = convertArrayToString(movie.directors)
-    movie.casts = convertArrayToString(movie.casts)
-    movie.genres = movie.genres.join('/')
-    movie.subtitle = movie.countries[0] + " - " + movie.year
-    movie.score = movie.rating.stars / 10
+    const info = {
+      ...movie
+    }
+    info.directorsStr = convertArrayToNameString(movie.directors)
+    info.castsStr = convertArrayToNameString(movie.casts)
+    info.castsInfo = convertArrayToInfo(movie.casts)
+    info.genresStr = movie.genres.join('、')
+    info.subtitle = movie.countries[0] + " - " + movie.year
+    info.score = movie.rating.stars / 10
     this.setData({
-      movie
+      movie: info
     })
+    console.log(info)
   },
 
   /**
@@ -42,7 +48,6 @@ Page({
     wx.request({
       url: `${app.gBaseUrl}subject/${mid}`,
       success: (res) => {
-        console.log(res)
         this.processMovieData(res.data)
       }
     })
