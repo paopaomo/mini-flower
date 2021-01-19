@@ -4,7 +4,7 @@
   <image src="{{ movie.images.large }}" class="poster" />
   <text class="title">{{ movie.title }} </text>
   <view class="rate-container">
-    <l-rate score="{{ movie.rating.stars / 10 }}" size="22" disabled="{{true}}" />
+    <l-rate score="{{ movie.rating.stars / 10 }}" size="22" disabled />
     <text class="score">{{ movie.rating.average }}</text>
   </view>
 </view>
